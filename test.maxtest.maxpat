@@ -9,8 +9,19 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 174.0, 200.0, 849.0, 480.0 ],
+        "rect": [ 461.0, 607.0, 431.0, 260.0 ],
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-25",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 249.0, 120.0, 73.0, 22.0 ],
+                    "text": "route visible"
+                }
+            },
             {
                 "box": {
                     "id": "obj-24",
@@ -18,8 +29,22 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 105.0, 60.0, 29.5, 22.0 ],
-                    "text": "1"
+                    "patching_rect": [ 105.0, 60.0, 59.0, 22.0 ],
+                    "text": "getvisible"
+                }
+            },
+            {
+                "box": {
+                    "fontface": 0,
+                    "fontsize": 12.0,
+                    "id": "obj-20",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "jit_matrix", "bang", "" ],
+                    "patching_rect": [ 105.0, 90.0, 163.0, 22.0 ],
+                    "text": "jit.world my_world @visible 0",
+                    "varname": "jit_world"
                 }
             },
             {
@@ -29,8 +54,8 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "int" ],
-                    "patching_rect": [ 105.0, 90.0, 33.0, 22.0 ],
-                    "text": "== 1"
+                    "patching_rect": [ 249.0, 150.0, 33.0, 22.0 ],
+                    "text": "== 0"
                 }
             },
             {
@@ -41,7 +66,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 105.0, 150.0, 87.0, 22.0 ],
+                    "patching_rect": [ 249.0, 210.0, 87.0, 22.0 ],
                     "text": "test.assert test"
                 }
             },
@@ -54,7 +79,7 @@
                     "outlettype": [ "int" ],
                     "parameter_enable": 0,
                     "parameter_mappable": 0,
-                    "patching_rect": [ 105.0, 120.0, 24.0, 24.0 ]
+                    "patching_rect": [ 249.0, 180.0, 24.0, 24.0 ]
                 }
             },
             {
@@ -83,8 +108,20 @@
         "lines": [
             {
                 "patchline": {
-                    "destination": [ "obj-48", 0 ],
+                    "destination": [ "obj-25", 0 ],
+                    "source": [ "obj-20", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-20", 0 ],
                     "source": [ "obj-24", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-48", 0 ],
+                    "source": [ "obj-25", 0 ]
                 }
             },
             {
