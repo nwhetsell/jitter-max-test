@@ -48,10 +48,7 @@ jobs:
         run: gem install sqlite3
 
       - name: Use gl2 engine
-        run: |
-          cd ~/Library/Application\ Support/Cycling\ \'74/Max\ 9/Settings
-          mv maxpreferences.maxpref maxpreferences.maxpref.old
-          jq '.preferences.gfxengine = "gl2"' maxpreferences.maxpref.old > maxpreferences.maxpref
+        run: echo '{"preferences":{"gfxengine":"gl2"}}' > ~/Library/Application\ Support/Cycling\ \'74/Max\ 9/Settings/maxpreferences.maxpref
 
       # The test runner is more-or-less broken. To get a non-zero return code,
       # you have to require the test runner Ruby script, and also pass an extra
